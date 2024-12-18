@@ -29,7 +29,6 @@ module.exports = async (req, res) => {
 
     // Return JSON response
     res.status(200).json({
-      success: true,
       data: {
         tokenSupply: formattedSupply
       }
