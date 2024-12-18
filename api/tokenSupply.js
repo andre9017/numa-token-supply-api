@@ -29,12 +29,10 @@ module.exports = async (req, res) => {
 
     // Return the response
     res.status(200).json({
-      data: {
         total_supply: formattedSupply,
-      },
     });
   } catch (error) {
-    // Handle errors gracefully
+    // Handle errors
     res.status(500).json({
       success: false,
       error: error.message,
