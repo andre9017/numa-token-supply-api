@@ -1,13 +1,9 @@
-const express = require("express");
 const { ethers } = require("ethers");
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Connect to Arbitrum
+// Arb RPC
 const provider = new ethers.JsonRpcProvider("https://arb1.arbitrum.io/rpc");
 
-// Token contract details
+// NUMA contract details
 const contractAddress = "0x7fb7ede54259cb3d4e1eaf230c7e2b1ffc951e9a"; // NUMA Contract Address
 const abi = [
   {
@@ -24,8 +20,8 @@ const abi = [
 // Instance of Contract
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
-// Endpoint for total supply
-app.get("/tokenSupply", async (req, res) => {
+// Total Supply
+module.exports = async (req, res) => {
   try {
     const totalSupply = await contract.totalSupply();
     const formattedSupply = ethers.formatUnits(totalSupply, 18); // Number to 18 d.p.
@@ -41,9 +37,4 @@ app.get("/tokenSupply", async (req, res) => {
       error: error.message,
     });
   }
-});
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
 });
