@@ -29,7 +29,6 @@ module.exports = async (req, res) => {
 
     // Return the response
     res.status(200).json({
-      success: true,
       data: {
         total_supply: formattedSupply,
       },
