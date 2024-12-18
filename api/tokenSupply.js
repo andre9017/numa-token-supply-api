@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
   try {
     // Fetch total supply from the blockchain
     const totalSupply = await contract.totalSupply();
-    const formattedSupply = ethers.formatUnits(totalSupply, 18); // Convert to human-readable format
+    const formattedSupply = ethers.formatUnits(totalSupply, 18); // Number, allowing 18dp
 
     // Return the response
     res.status(200).json({
