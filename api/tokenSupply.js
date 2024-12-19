@@ -9,11 +9,6 @@ const provider = new ethers.JsonRpcProvider("https://arb1.arbitrum.io/rpc");
 
 // NUMA contract details
 const contractAddress = process.env.CONTRACT_ADDRESS; // Load address from .env
-if (!contractAddress) {
-  console.error("CONTRACT_ADDRESS is not defined in the environment variables.");
-  throw new Error("CONTRACT_ADDRESS is missing. Please check your .env or environment variables.");
-}
-
 const abi = [
   {
     constant: true,
