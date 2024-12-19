@@ -1,10 +1,14 @@
 const { ethers } = require("ethers");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Arb RPC
 const provider = new ethers.JsonRpcProvider("https://arb1.arbitrum.io/rpc");
 
 // NUMA contract details
-const contractAddress = "0x7fb7ede54259cb3d4e1eaf230c7e2b1ffc951e9a"; // NUMA Contract Address
+const contractAddress = process.env.CONTRACT_ADDRESS; // Load address from .env
 const abi = [
   {
     constant: true,
